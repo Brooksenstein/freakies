@@ -23,6 +23,10 @@ public class Line : MonoBehaviour {
 		}
 	}
 
+	public List<Vector2> GetPoints () {
+		return points;
+	}
+
 	private void SetPoint(Vector2 point) {
 		points.Add (point);
 		lineRenderer.positionCount = points.Count;
