@@ -7,7 +7,13 @@ public class LineCreator : MonoBehaviour {
 	public GameObject linePrefab;
 
 	private Line activeLine;
-	private List<List<Vector2>> lines = new List<List<Vector2>> ();
+	private List<List<Vector2>> lineVectors;
+	private Stack<Line> lines;
+
+	void Start () {
+		lineVectors = new List<List<Vector2>> ();
+		lines = new Stack<Line> ();
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -16,7 +22,8 @@ public class LineCreator : MonoBehaviour {
 			activeLine = newLine.GetComponent<Line> ();
 		} else if (Input.GetMouseButtonUp (0)) {
 			if (activeLine != null) {
-				lines.Add (activeLine.GetPoints());
+				lineVectors.Add (activeLine.GetPoints());
+				lines.Push (activeLine);
 			}
 			activeLine = null;
 		}
@@ -27,11 +34,16 @@ public class LineCreator : MonoBehaviour {
 		}
 	}
 
-	public List<List<Vector2>> GetLines () {
-		return lines;
+	public List<List<Vector2>> GetLineVectors () {
+		return lineVectors;
 	}
 
 	public void Reset() {
-		lines = new List<List<Vector2>> ();
+		lineVectors = new List<List<Vector2>> ();
 	}
+
+	public void UndoLine () {
+		Destroy (lines.Pop ().gameObject);
+	}
+		
 }
