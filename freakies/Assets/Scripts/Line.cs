@@ -10,6 +10,7 @@ public class Line : MonoBehaviour {
 
 	void Start () {
 		lineRenderer = GetComponent<LineRenderer> ();
+		lineRenderer.sortingLayerName = "Foreground";
 	}
 
 	public void UpdateLine (Vector2 pointIn) {
