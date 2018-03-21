@@ -189,7 +189,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 186039263}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 799730899}
+        m_MethodName: Undo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &186039263
@@ -531,51 +542,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &709717101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 709717103}
-  - component: {fileID: 709717102}
-  m_Layer: 0
-  m_Name: Control
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &709717102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 709717101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba654095359743649638d6d111ee535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headLines: []
-  bodyLines: []
-  undoButton: {fileID: 186039262}
-  doneButton: {fileID: 1486269324}
-  linePrefab: {fileID: 1328839884897376, guid: e244b2d7216c04d5b9a29022356d0177, type: 2}
---- !u!4 &709717103
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 709717101}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &791604481
 Prefab:
   m_ObjectHideFlags: 0
@@ -703,6 +669,8 @@ GameObject:
   - component: {fileID: 799730897}
   - component: {fileID: 799730896}
   - component: {fileID: 799730895}
+  - component: {fileID: 799730899}
+  - component: {fileID: 799730900}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -773,6 +741,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799730899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799730894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadb7aaad33f84056a30868bedd96c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &799730900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799730894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e9e36cc9fe34e6eb0bb2adca73ae13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016981327
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +837,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016981327}
+--- !u!1001 &1040537082
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575892039969634, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114363482639802418, guid: 44b3700b075aa48f5b33071a00f7df3f,
+        type: 2}
+      propertyPath: undoButton
+      value: 
+      objectReference: {fileID: 186039262}
+    - target: {fileID: 114363482639802418, guid: 44b3700b075aa48f5b33071a00f7df3f,
+        type: 2}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 1486269324}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 44b3700b075aa48f5b33071a00f7df3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1084169457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,9 +1146,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadScene
-        m_Mode: 3
+      - m_Target: {fileID: 799730900}
+        m_MethodName: Next
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
