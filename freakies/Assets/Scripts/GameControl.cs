@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 enum Scene { Head, Body }
 
@@ -48,7 +49,7 @@ public class GameControl : MonoBehaviour {
 	}
 
 	void Next () {
-		Application.LoadLevel(1);
+		SceneManager.LoadScene(1);
 		StartScene (Scene.Body);
 	}
 
