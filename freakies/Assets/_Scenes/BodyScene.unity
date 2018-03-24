@@ -380,7 +380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 265}
+  m_AnchoredPosition: {x: 0, y: 265}
   m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &298647409
@@ -409,7 +409,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -685,8 +685,8 @@ GameObject:
   - component: {fileID: 799730897}
   - component: {fileID: 799730896}
   - component: {fileID: 799730895}
-  - component: {fileID: 799730899}
   - component: {fileID: 799730900}
+  - component: {fileID: 799730899}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 799730894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e9e36cc9fe34e6eb0bb2adca73ae13, type: 3}
+  m_Script: {fileID: 11500000, guid: c12646c5f5fb14633befec174f8bc859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1016981327
@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 300}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016981329
@@ -840,7 +840,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1111,7 +1111,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 799730900}
-        m_MethodName: Next
+        m_MethodName: toRevealScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

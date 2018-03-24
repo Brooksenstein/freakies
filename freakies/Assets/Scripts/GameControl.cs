@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-enum FreakyScene { Head=0, Body=1, Reveal=2 }
+public enum FreakyScene { Menu=0, Head=1, Body=2, Reveal=3, HowToPlay=4  }
 
 public class GameControl : MonoBehaviour {
 	public static GameControl Control;
@@ -49,9 +49,9 @@ public class GameControl : MonoBehaviour {
 		Destroy (lineHistory.Pop ().gameObject);
 	}
 
-	public void Next () {
-		currentScene = (FreakyScene)((int)currentScene + 1);
-		SceneManager.LoadScene((int)currentScene);
+	public void SetScene (FreakyScene scene) {
+		currentScene = scene;
+		SceneManager.LoadScene ((int)currentScene);
 	}
 
 	// Event handlers
@@ -59,6 +59,11 @@ public class GameControl : MonoBehaviour {
 	void StartScene (Scene scene, LoadSceneMode mode) {
 		FreakyScene freakyScene = (FreakyScene)scene.buildIndex;
 		if (freakyScene == FreakyScene.Head || freakyScene == FreakyScene.Body) {
+			if (freakyScene == FreakyScene.Head) {
+				// Reset Game
+				headLineVectors = new List<List<Vector3>> ();
+				bodyLineVectors = new List<List<Vector3>> ();
+			}
 			lineHistory = new Stack<Line> ();
 			activeVectorList = freakyScene.Equals (FreakyScene.Head) ? headLineVectors : bodyLineVectors;
 		} else if (freakyScene == FreakyScene.Reveal) {
