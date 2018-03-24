@@ -6,6 +6,7 @@ public class Line : MonoBehaviour {
 
 	public LineRenderer lineRenderer;
 
+	//TODO: These can be made Vector2 points again probably, I made them Vector3 when messing with render ordering.
 	private List<Vector3> points;
 
 	void Start () {

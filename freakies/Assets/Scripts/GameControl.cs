@@ -10,7 +10,7 @@ public class GameControl : MonoBehaviour {
 	public static GameControl Control;
 
 	const float canvasSize = 4f;
-	const float shrinkFactor = 0.5f;
+	public float shrinkFactor;
 
 	public GameObject linePrefab;
 
@@ -99,7 +99,7 @@ public class GameControl : MonoBehaviour {
 			GameObject newLineObj = Instantiate (linePrefab);
 			Line newLine = newLineObj.GetComponent<Line> ();
 			vectors.ForEach (delegate(Vector3 vector) {
-				newLine.UpdateLine (new Vector2(vector.x * shrinkFactor, vector.y * 0.5f - (canvasSize / 2)));
+				newLine.UpdateLine (new Vector2(vector.x * shrinkFactor, vector.y * shrinkFactor - (canvasSize / 2)));
 			});
 		});
 	}

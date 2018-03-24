@@ -51,8 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba654095359743649638d6d111ee535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headLines: []
-  bodyLines: []
-  undoButton: {fileID: 0}
-  doneButton: {fileID: 0}
+  shrinkFactor: 0.5
   linePrefab: {fileID: 1328839884897376, guid: e244b2d7216c04d5b9a29022356d0177, type: 2}
