@@ -9,6 +9,9 @@ enum FreakyScene { Head=0, Body=1, Reveal=2 }
 public class GameControl : MonoBehaviour {
 	public static GameControl Control;
 
+	const float canvasSize = 4f;
+	const float shrinkFactor = 0.5f;
+
 	public GameObject linePrefab;
 
 	private FreakyScene currentScene;
@@ -89,15 +92,14 @@ public class GameControl : MonoBehaviour {
 			GameObject newLineObj = Instantiate (linePrefab);
 			Line newLine = newLineObj.GetComponent<Line> ();
 			vectors.ForEach (delegate(Vector3 vector) {
-				newLine.UpdateLine ((Vector2)vector);
+				newLine.UpdateLine (new Vector2(vector.x * shrinkFactor, vector.y * shrinkFactor + (canvasSize / 2)));
 			});
-			newLine.lineRenderer.transform.localScale = new Vector3(0.1f, 0.1f, 0);
 		});
 		bodyLineVectors.ForEach (delegate(List<Vector3> vectors) {
 			GameObject newLineObj = Instantiate (linePrefab);
 			Line newLine = newLineObj.GetComponent<Line> ();
 			vectors.ForEach (delegate(Vector3 vector) {
-				newLine.UpdateLine ((Vector2)vector);
+				newLine.UpdateLine (new Vector2(vector.x * shrinkFactor, vector.y * 0.5f - (canvasSize / 2)));
 			});
 		});
 	}
