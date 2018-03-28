@@ -21,7 +21,7 @@ public class Line : MonoBehaviour {
 			SetPoint (point);
 		}
 
-		if (Vector3.Distance (points.Last (), point) > .1f) {
+		if (Vector3.Distance (points.Last (), point) > .05f) {
 			SetPoint (point);
 		}
 	}

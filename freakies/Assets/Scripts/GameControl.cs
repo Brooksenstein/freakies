@@ -9,7 +9,7 @@ public enum FreakyScene { Menu=0, Head=1, Body=2, Reveal=3, HowToPlay=4  }
 public class GameControl : MonoBehaviour {
 	public static GameControl Control;
 
-	const float canvasSize = 4f;
+	const float canvasSize = 3.5f;
 	public float shrinkFactor;
 
 	public GameObject linePrefab;
