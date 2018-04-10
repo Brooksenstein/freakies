@@ -7,7 +7,7 @@ public class Line : MonoBehaviour {
 	public LineRenderer lineRenderer;
 
 	//TODO: These can be made Vector2 points again probably, I made them Vector3 when messing with render ordering.
-	private List<Vector3> points;
+	private List<Vector2> points;
 
 	void Start () {
 		lineRenderer = GetComponent<LineRenderer> ();
@@ -15,9 +15,9 @@ public class Line : MonoBehaviour {
 	}
 
 	public void UpdateLine (Vector2 pointIn) {
-		Vector3 point = new Vector3 (pointIn.x, pointIn.y, 10);
+		Vector2 point = new Vector2 (pointIn.x, pointIn.y);
 		if (points == null) {
-			points = new List<Vector3> ();
+			points = new List<Vector2> ();
 			SetPoint (point);
 		}
 
@@ -26,11 +26,11 @@ public class Line : MonoBehaviour {
 		}
 	}
 
-	public List<Vector3> GetPoints () {
+	public List<Vector2> GetPoints () {
 		return points;
 	}
 
-	private void SetPoint(Vector3 point) {
+	private void SetPoint(Vector2 point) {
 		points.Add (point);
 		lineRenderer.positionCount = points.Count;
 		lineRenderer.SetPosition (points.Count - 1, point);

@@ -16,10 +16,14 @@ public class GameControl : MonoBehaviour {
 
 	private FreakyScene currentScene;
 	private Line activeLine;
-	private List<List<Vector3>> headLineVectors = new List<List<Vector3>> ();
-	private List<List<Vector3>> bodyLineVectors = new List<List<Vector3>> ();
-	private List<List<Vector3>> activeVectorList;
+	private List<List<Vector2>> headLineVectors = new List<List<Vector2>> ();
+	private List<Color> headLineColors = new List<Color> ();
+	private List<List<Vector2>> bodyLineVectors = new List<List<Vector2>> ();
+	private List<Color> bodyLineColors = new List<Color> ();
+	private List<List<Vector2>> activeVectorList;
+	private List<Color> activeColorList;
 	private Stack<Line> lineHistory;
+	private int lineCount;
 
 	// Lifecycle
 
@@ -36,6 +40,7 @@ public class GameControl : MonoBehaviour {
 		currentScene = (FreakyScene)SceneManager.GetActiveScene ().buildIndex;
 		StartScene (SceneManager.GetActiveScene (), LoadSceneMode.Single);
 		SceneManager.sceneLoaded += StartScene;
+		lineCount = GameObject.FindGameObjectsWithTag ("Line").Length;
 	}
 
 	void Update () {
@@ -46,7 +51,9 @@ public class GameControl : MonoBehaviour {
 
 	public void Undo () {
 		activeVectorList.RemoveAt (activeVectorList.Count - 1);
+		activeColorList.RemoveAt (activeColorList.Count - 1);
 		Destroy (lineHistory.Pop ().gameObject);
+		lineCount--;
 	}
 
 	public void SetScene (FreakyScene scene) {
@@ -61,12 +68,17 @@ public class GameControl : MonoBehaviour {
 		if (freakyScene == FreakyScene.Head || freakyScene == FreakyScene.Body) {
 			if (freakyScene == FreakyScene.Head) {
 				// Reset Game
-				headLineVectors = new List<List<Vector3>> ();
-				bodyLineVectors = new List<List<Vector3>> ();
+				headLineVectors = new List<List<Vector2>> ();
+				headLineColors = new List<Color> ();
+				bodyLineVectors = new List<List<Vector2>> ();
+				bodyLineColors = new List<Color> ();
 			}
 			lineHistory = new Stack<Line> ();
+			lineCount = GameObject.FindGameObjectsWithTag ("Line").Length;
 			activeVectorList = freakyScene.Equals (FreakyScene.Head) ? headLineVectors : bodyLineVectors;
+			activeColorList = freakyScene.Equals (FreakyScene.Head) ? headLineColors : bodyLineColors;
 		} else if (freakyScene == FreakyScene.Reveal) {
+			lineCount = GameObject.FindGameObjectsWithTag ("Line").Length;
 			DrawFreakie ();
 		}
 	}
@@ -81,6 +93,7 @@ public class GameControl : MonoBehaviour {
 
 		if (isLineActive && (Input.GetMouseButtonUp (0) || !isInCanvas)) {
 			activeVectorList.Add (activeLine.GetPoints ());
+			activeColorList.Add (activeLine.GetComponent<Renderer> ().material.color);
 			lineHistory.Push (activeLine);
 			activeLine = null;
 		} else if (isLineActive) {
@@ -88,24 +101,31 @@ public class GameControl : MonoBehaviour {
 			activeLine.UpdateLine (mousePos);
 		} else if (Input.GetMouseButtonDown (0) && isInCanvas) {
 			GameObject newLine = Instantiate (linePrefab);
+			lineCount++;
+			newLine.GetComponent<Renderer> ().material.color = ColorPicker.SelectedColor;
+			newLine.GetComponent<Renderer> ().sortingOrder += lineCount * 10;
 			activeLine = newLine.GetComponent<Line> ();
 		}
 	}
 
 	void DrawFreakie () {
-		headLineVectors.ForEach (delegate(List<Vector3> vectors) {
+		for (int i = 0; i < headLineVectors.Count; i++) {
+			List<Vector2> vectors = headLineVectors [i];
 			GameObject newLineObj = Instantiate (linePrefab);
 			Line newLine = newLineObj.GetComponent<Line> ();
-			vectors.ForEach (delegate(Vector3 vector) {
+			newLine.GetComponent<Renderer> ().material.color = headLineColors [i];
+			vectors.ForEach (delegate(Vector2 vector) {
 				newLine.UpdateLine (new Vector2(vector.x * shrinkFactor, vector.y * shrinkFactor + (canvasSize / 2)));
 			});
-		});
-		bodyLineVectors.ForEach (delegate(List<Vector3> vectors) {
+		}
+		for (int i = 0; i < bodyLineVectors.Count; i++) {
+			List<Vector2> vectors = bodyLineVectors [i];
 			GameObject newLineObj = Instantiate (linePrefab);
 			Line newLine = newLineObj.GetComponent<Line> ();
-			vectors.ForEach (delegate(Vector3 vector) {
+			newLine.GetComponent<Renderer> ().material.color = bodyLineColors [i];
+			vectors.ForEach (delegate(Vector2 vector) {
 				newLine.UpdateLine (new Vector2(vector.x * shrinkFactor, vector.y * shrinkFactor - (canvasSize / 2)));
 			});
-		});
+		}
 	}
 }
