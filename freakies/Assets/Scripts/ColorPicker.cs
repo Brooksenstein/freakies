@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorPicker : MonoBehaviour {
 
-	public static Color SelectedColor { get; private set; }
+	public static Color SelectedColor { get; set; }
 
 	[SerializeField]
 	private Renderer selectedColorPreview;

@@ -77,6 +77,7 @@ public class GameControl : MonoBehaviour {
 			lineCount = GameObject.FindGameObjectsWithTag ("Line").Length;
 			activeVectorList = freakyScene.Equals (FreakyScene.Head) ? headLineVectors : bodyLineVectors;
 			activeColorList = freakyScene.Equals (FreakyScene.Head) ? headLineColors : bodyLineColors;
+			ColorPicker.SelectedColor = Color.black;
 		} else if (freakyScene == FreakyScene.Reveal) {
 			lineCount = GameObject.FindGameObjectsWithTag ("Line").Length;
 			DrawFreakie ();
@@ -88,7 +89,7 @@ public class GameControl : MonoBehaviour {
 	void DrawLine () {
 		Vector2 pos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-		bool isInCanvas = hit != null && hit.collider != null;
+		bool isInCanvas = hit != null && hit.collider != null && hit.collider.CompareTag("Canvas");
 		bool isLineActive = activeLine != null;
 
 		if (isLineActive && (Input.GetMouseButtonUp (0) || !isInCanvas)) {

@@ -268,6 +268,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd45abfe5b4ce442abd10dcabfe9b3ef, type: 2}
   m_IsPrefabParent: 0
+--- !u!23 &352936963 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23340869325588500, guid: cd45abfe5b4ce442abd10dcabfe9b3ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 352936962}
 --- !u!1 &411150279
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &791604481
 Prefab:
@@ -489,7 +494,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.6168118, g: 0.22404847, b: 0.8235294, a: 0}
+  m_BackGroundColor: {r: 0.6666667, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -527,7 +532,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &799730899
 MonoBehaviour:
@@ -551,11 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12646c5f5fb14633befec174f8bc859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &1034899995 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23506850301641892, guid: cd45abfe5b4ce442abd10dcabfe9b3ef,
-    type: 2}
-  m_PrefabInternal: {fileID: 352936962}
 --- !u!4 &1123552377 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4884224632061286, guid: e244b2d7216c04d5b9a29022356d0177,
@@ -636,7 +636,7 @@ Transform:
   - {fileID: 1123552377}
   - {fileID: 1135318025}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1605945315
 Prefab:
@@ -681,7 +681,12 @@ Prefab:
         type: 2}
       propertyPath: selectedColorPreview
       value: 
-      objectReference: {fileID: 1034899995}
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310859408051080, guid: 21711002648d941b9abbd65af1928181,
+        type: 2}
+      propertyPath: selectedColorPreview
+      value: 
+      objectReference: {fileID: 352936963}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21711002648d941b9abbd65af1928181, type: 2}
   m_IsPrefabParent: 0
@@ -916,6 +921,48 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114159899802699250, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Draw the body
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688182448148512, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_Text
+      value: Done!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770793636935790, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_Text
+      value: Draw the body
+      objectReference: {fileID: 0}
+    - target: {fileID: 114741878668312582, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_Text
+      value: Done!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114177152145280020, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 799730900}
+    - target: {fileID: 114177152145280020, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toRevealScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114640945782743972, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 799730899}
+    - target: {fileID: 114640945782743972, guid: 7bcce5366fb36464991654feb7ccc311,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Undo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bcce5366fb36464991654feb7ccc311, type: 2}
