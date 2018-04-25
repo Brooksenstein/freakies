@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="260.71429"
-     inkscape:cy="634.28571"
+     inkscape:cx="489.28572"
+     inkscape:cy="62920"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -57,20 +57,20 @@
        id="rect3344"
        width="462.85715"
        height="188.57143"
-       x="-1094.2858"
-       y="63.790775"
+       x="-1580"
+       y="-424.78064"
        rx="30.6" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-945.71429"
-       y="186.64792"
+       x="-1425.4286"
+       y="-301.92352"
        id="text3349"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3351"
-         x="-945.71429"
-         y="186.64792"
+         x="-1425.4286"
+         y="-301.92352"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;font-family:'Carnivalee Freakshow';-inkscape-font-specification:'Carnivalee Freakshow'">Done</tspan></text>
   </g>
 </svg>
